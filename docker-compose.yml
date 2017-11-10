@@ -1,0 +1,14 @@
+version: "2"
+services:
+    geordi:
+        build: ./geordi
+        volumes:
+            - "./geordi:/app"
+        ports:
+            - "3000:3000"
+        links:
+            - redis
+    redis:
+        image: redis:3.2
+        ports:
+            - "6379"
